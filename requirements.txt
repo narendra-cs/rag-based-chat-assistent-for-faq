@@ -1,0 +1,30 @@
+# Utilities
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+pydantic_ai
+fastapi>=0.116.1
+uvicorn>=0.24.0
+sse_starlette>=3.0.2
+langserve
+
+# Vector database
+chromadb
+
+# Core LLM Libraries
+transformers>=4.41.2
+accelerate>=0.31.0
+openai>=1.99.9
+ollama>=0.5.3
+
+# Langchain
+langchain>=0.3.27
+langchain-community>=0.3.27
+langchain-core>=0.3.74
+langchain-openai>=0.3.30
+langchain-ollama>=0.3.6
+langchain-chroma
+langchain-text-splitters
+
+# Data processing
+pypdf    
+PyMuPDF

@@ -138,3 +138,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 For any questions or feedback, please open an issue on GitHub.
+
+## UI Snapshots
+
+### Home Page
+![Home Page](./imgs/Q&A_Chatbot_home.png)
+
+### Chat Interface
+![Chat Interface](./imgs/Q&A_Chatbot_chat.png)

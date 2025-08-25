@@ -1,6 +1,8 @@
 from typing import Dict
 from fastapi import FastAPI, status
 from fastapi.middleware.cors import CORSMiddleware
+from src.api.chat import router as chat_router
+from src.api.documents import router as documents_router
 
 app = FastAPI(
     title="RAG-based Chat Assistant for FAQ API",
@@ -27,7 +29,7 @@ app.add_middleware(
 
 
 @app.get("/", status_code=status.HTTP_200_OK)
-async def health_check() -> Dict[str, str]:
+async def home() -> Dict[str, str]:
     return {"message": "Welcome to RAG-based Chat Assistant for FAQ API"}
 
 
@@ -35,6 +37,9 @@ async def health_check() -> Dict[str, str]:
 async def health_check() -> Dict[str, str]:
     return {"message": "healthy"}
 
+
+app.include_router(chat_router)
+app.include_router(documents_router)
 
 if __name__ == "__main__":
     import uvicorn

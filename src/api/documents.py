@@ -1,11 +1,11 @@
 import os
+
 from fastapi import APIRouter, HTTPException, status
 from langchain_openai.embeddings import OpenAIEmbeddings
 
-from src.common.vector_store import VectorStore
 from src.common.document_loader import load_documents
 from src.common.utils import ProductEnum, get_logger, load_env
-
+from src.common.vector_store import VectorStore
 
 logger = get_logger(__name__)
 

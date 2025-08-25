@@ -1,13 +1,13 @@
 import os
+
 from fastapi import APIRouter, HTTPException, status
 from langchain_openai.embeddings import OpenAIEmbeddings
 
+from src.common.utils import get_llm, get_logger, load_env
 from src.common.vector_store import VectorStore
-from src.common.utils import get_logger, get_llm, load_env
 from src.llm.chat_bot import ChatBot
 from src.llm.chat_store_manager import ChatStoreManager
-from src.pydentic_models.models import ChatResponse, ChatInput
-
+from src.pydentic_models.models import ChatInput, ChatResponse
 
 logger = get_logger(__name__)
 
@@ -27,7 +27,8 @@ async def chat(chat_input: ChatInput):
         embedding_function = OpenAIEmbeddings()
 
         # Initialize vector store and load it
-        vector_store = VectorStore(embedding_function, os.getenv("VECTOR_STORE_PATH"))
+        vector_store_path = os.getenv("VECTOR_STORE_PATH")
+        vector_store = VectorStore(embedding_function, vector_store_path)
         retriever = vector_store.get_retriever()
 
         chatbot = ChatBot(

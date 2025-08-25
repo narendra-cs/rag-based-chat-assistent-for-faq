@@ -1,5 +1,6 @@
-from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_community.chat_message_histories import ChatMessageHistory
+from langchain_core.chat_history import BaseChatMessageHistory
+
 from src.common.utils import get_logger
 
 logger = get_logger(__name__)

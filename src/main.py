@@ -1,15 +1,19 @@
 from typing import Dict
-from fastapi import FastAPI, status
+
+from fastapi import APIRouter, FastAPI, status
 from fastapi.middleware.cors import CORSMiddleware
+
 from src.api.chat import router as chat_router
 from src.api.documents import router as documents_router
+from src.config import API_PREFIX, MODE
 
 app = FastAPI(
     title="RAG-based Chat Assistant for FAQ API",
     description="RAG-based Chat Assistant for FAQ API",
     version="0.0.1",
-    root_path="/api/v1",
-    root_path_in_servers=False,
+    docs_url=f"{API_PREFIX}/docs",
+    redoc_url=None,
+    openapi_url=f"{API_PREFIX}/openapi.json",
 )
 
 # Add CORS middleware to allow requests from the UI
@@ -27,21 +31,34 @@ app.add_middleware(
     ],
 )
 
+# Create a base router for all API routes
+api_router = APIRouter(prefix=API_PREFIX)
 
+# Include all API routes under the base router
+api_router.include_router(chat_router)
+api_router.include_router(documents_router)
+
+
+# Include the base router with all API routes
+app.include_router(api_router)
+
+
+# Root endpoint
 @app.get("/", status_code=status.HTTP_200_OK)
 async def home() -> Dict[str, str]:
     return {"message": "Welcome to RAG-based Chat Assistant for FAQ API"}
 
 
-@app.get("/health", status_code=status.HTTP_200_OK)
+# Health check endpoint
+@app.get(f"{API_PREFIX}/health", status_code=status.HTTP_200_OK)
 async def health_check() -> Dict[str, str]:
     return {"message": "healthy"}
 
 
-app.include_router(chat_router)
-app.include_router(documents_router)
-
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    if MODE == "DEVELOPMENT":
+        uvicorn.run("src.main:app", host="0.0.0.0", port=8000, reload=True)
+    else:
+        uvicorn.run("src.main:app", host="0.0.0.0", port=8000)

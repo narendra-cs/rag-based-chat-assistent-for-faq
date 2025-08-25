@@ -1,6 +1,7 @@
 from typing import List
-from pydantic import BaseModel, Field
+
 from langchain_core.messages import BaseMessage
+from pydantic import BaseModel, Field
 
 
 class ChatInput(BaseModel):

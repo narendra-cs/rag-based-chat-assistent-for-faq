@@ -1,8 +1,9 @@
-from typing import Dict, Any
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from typing import Any, Dict
+
+from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
-from langchain.chains import create_retrieval_chain, create_history_aware_retriever
-from langchain_core.runnables import RunnableWithMessageHistory, Runnable
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_core.runnables import Runnable, RunnableWithMessageHistory
 
 from src.llm.chat_store_manager import ChatStoreManager
 

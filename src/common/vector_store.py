@@ -1,7 +1,7 @@
-from langchain_community.vectorstores import Chroma
-from langchain_core.documents import Document
 from langchain.embeddings.base import Embeddings
 from langchain.schema import BaseRetriever
+from langchain_community.vectorstores import Chroma
+from langchain_core.documents import Document
 
 from src.common.utils import get_logger
 

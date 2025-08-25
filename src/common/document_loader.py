@@ -1,11 +1,11 @@
 import os
 from pathlib import Path
-from langchain_core.documents import Document
+
 from langchain_community.document_loaders import PyPDFDirectoryLoader
+from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from src.common.utils import get_logger, ProductEnum
-
+from src.common.utils import ProductEnum, get_logger
 
 logger = get_logger(__name__)
 

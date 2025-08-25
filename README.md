@@ -10,6 +10,36 @@ This project implements a RAG-based chat assistant that helps users find accurat
 - Retrieving relevant context before generating responses
 - Providing a user-friendly interface for seamless interaction
 
+## 🚀 Features
+
+### Core Capabilities
+- **PDF Processing**: Extracts and structures FAQ content from product documentation
+- **Smart Chunking**: Breaks down documents into meaningful segments for precise retrieval
+- **Vector Embeddings**: Converts text into high-dimensional vectors for semantic search
+
+### Intelligent Retrieval
+- **Contextual Search**: Finds the most relevant FAQ sections for each query
+- **Semantic Understanding**: Matches user questions with document content beyond simple keyword matching
+- **Efficient Storage**: Uses ChromaDB for fast and scalable vector similarity search
+
+### Advanced RAG Workflow
+- **Context-Enriched Generation**: Enhances LLM responses with retrieved document excerpts
+- **Confidence Scoring**: Indicates response reliability based on source material relevance
+- **Source Attribution**: Provides references to the original document sections
+
+### User Experience
+- **Natural Interaction**: Understands and responds to free-form product questions
+- **Conversation Flow**: Maintains context for follow-up questions
+- **Clear Feedback**: Handles unknown queries gracefully with helpful guidance
+
+### Observability & Monitoring
+- **Observability**: Integrated with LangSmith for tracing and debugging
+- **Modular Design**: Easy to extend with additional data sources or LLM providers
+- **Performance Metrics**: Tracks response quality and system performance
+
+### Extensibility
+- **Modular Architecture**: Easy integration of additional document sources
+
 ## 🛠️ Tech Stack
 
 - **Backend**: FastAPI, Uvicorn
@@ -23,7 +53,7 @@ This project implements a RAG-based chat assistant that helps users find accurat
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/rag-based-chat-assistant.git
+   git clone https://github.com/narendra-cs/rag-based-chat-assistent-for-faq.git
    cd rag-based-chat-assistent-for-faq
    ```
 

@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+dist/
+build/
+
+# Build files
+.vite/
+*.log
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Coverage directory
+coverage/
+
+# TypeScript
+*.d.ts
+
+# Vite cache
+.cache/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
